@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DIYPS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<style>
+ body {background-color: Snow; text-align: center; font-family: 'impact';}
+.navbar-custom {background-color: Lavender}
+.navbar-custom .navbar-nav .nav-link {color:Plum}
+.navbar-custom .navbar-nav .nav-link:hover {color: Thistle}
+
+.dropdown-menu {
+  background-color: Plum;
+  color: RebeccaPurple;
+  text-align: center;}
+
+.dropdown-menu .dropdown-item {
+  color: RebeccaPurple;}
+
+.dropdown-menu a:hover {
+  color: DeepPink;
+  background-color: Plum}
+
+.navbar-nav .dropdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;}
+
+.navbar-nav .dropdown-toggle.caret {
+   @media (min-width: 992px) {
+   margin-left: -16px;}
+   }
+
+  </style>
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+   <div class="container-fluid justify-content-center collapse navbar-collapse">
+    <ul class="navbar-nav" >
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="glitchart.html">Glitch Art</a>
+      </li>
+ <li class="nav-item">
+        <a class="nav-link" href="Minecraft.html">Minecraft Art</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="3D.html">3D</a>
+      <li class="nav-item">
+        <a class="nav-link" href="mememashup.html">Meme Mashup</a>
+      </li>
+ <li class="nav-item">
+        <a class="nav-link" href="portrait.html">Self Portrait</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="askaquestion.html">Ask a question</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="catch.html">Catch a Star</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="insecure.html">Insecure I am</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class= "container-fluid p-5 bg-muted text-center">
+
+<h1 style="color:Plum;"> Ask a Question</h1>
+<br/>
+<h2 style="color:thistle;">For this assignment, I decided to re-create a Magic 8 Ball using p5.js. The Magic 8 Ball is a classic toy that most of us have played with. If you have never played with this toy before, you ask it a question and shake it for an answer. In this case, pressing any of the keys from 1 to 0 on your keyboard will give you a different response.  Make sure you ask a question before to get your fortune!</h2>
+<br/>
+<iframe src="diyps2024/index.html" height="666" width="1000" title="DIYPS"></iframe </td>
+<br/>
+<div class="container p-5 my-5 border">
+  <p>Code: <br>var img;
+<br>var initials ='jd'; 
+<br>var choice = '1'; 
+<br>var screenbg = 250; 
+<br>var lastscreenshot=61; 
+
+<br>function preload() {
+ <br> img = loadImage('https://julissaduran.github.io/diy/fortune.jpg');
+  <br>img0 = loadImage('https://julissaduran.github.io/diy/number0.png');
+ <br> img1 = loadImage('https://julissaduran.github.io/diy/number1.png');
+ <br> img2 = loadImage('https://julissaduran.github.io/diy/number2.png');
+ <br> img3 = loadImage('https://julissaduran.github.io/diy/number3.png');
+ <br> img4 = loadImage('https://julissaduran.github.io/diy/number4.png');
+ <br> img5 = loadImage('https://julissaduran.github.io/diy/number5.png');
+ <br> img6 = loadImage('https://julissaduran.github.io/diy/number6.png');
+ <br> img7 = loadImage('https://julissaduran.github.io/diy/number7.png');
+ <br> img8 = loadImage('https://julissaduran.github.io/diy/number8.png');
+ <br> img9 = loadImage('https://julissaduran.github.io/diy/number9.png');
+  
+<br>}
+
+<br>function setup(){
+ <br> createCanvas(1000,666);
+ <br> background(img);
+<br>}
+
+<br>function draw(){
+ <br> if(keyIsPressed){
+  <br>choice = key;// set choice to the key that was pressed 
+ <br> clear_print();// check to see if it is clear screen or save image
+ <br> }
+<br>if(mouseIsPressed){
+  <br>newkeyChoice(choice);// if the mouse is pressed call newkeychoice 
+ <br> }  
+<br>}
+<br>function newkeyChoice(toolChoice){<br>//toolchoice is the key that was pressed
+<br>//the key mapping if statements that you can change to do anything you want.
+<br>//just make sure each key option has the a stroke or fill and then what type of
+<br>//graphic function
+
+<br>if(toolChoice =='0'){ //first tool 
+ <br> image(img0,mouseX-180, mouseY-500,500);
+  
+<br>} else if(toolChoice =='1'){//second tool
+ <br> image(img1,mouseX-180, mouseY-500,500);
+  
+<br>} else if(toolChoice =='2'){//third tool
+  <br>image(img2,mouseX-180, mouseY-500,500);
+
+<br>} else if(toolChoice =='3'){
+ <br> image(img3,mouseX-180, mouseY-500,500);
+  
+<br>} else if(toolChoice =='4'){
+ <br> image(img4,mouseX-180, mouseY-500,500);
+  
+<br>} else if(toolChoice =='5'){
+  <br>image(img5,mouseX-180, mouseY-500,500);
+  
+<br>} else if(toolChoice =='6'){
+  <br>image(img6,mouseX-180, mouseY-500,500);
+
+<br>} else if(toolChoice =='7'){
+ <br> image(img7,mouseX-180, mouseY-500,500);
+  
+<br>} else if(toolChoice =='8'){
+ <br> image(img8,mouseX-180, mouseY-500,500);
+ 
+<br>} else if(toolChoice =='9'){
+ <br> image(img9,mouseX-180, mouseY-500,500);
+ <br> }
+<br>}
+<br>function clear_print(){
+ <br> //this will do one of two things,x clears the screen by resetting <br>the background
+  <br>// p calls the routine saveme, which saves a copy of the screen
+  <br>if(key =='x'||key == 'X'){
+   <br> background(img);//set the screen back to the background color
+ <br> } else if(key == 'p'||key =='P'){
+   <br> saveme();// call saveme which saves an image of the screen
+ <br> } 
+<br>}
+<br>function saveme(){
+ <br> //this will save the name as the initials,date,time,and a millis <br>counting number.
+ <br> //it will always be larger in value then the last one.
+<br>filename=initials+day() + hour() + minute() +second();
+  <br>if (second()!=lastscreenshot) { // don't take a screenshot if you <br>just took one
+   <br> saveCanvas(filename, 'jpg');
+   <br> key="";
+ <br> }
+ <br> lastscreenshot=second(); // set this to the current second so no <br>more than one per second
+  
+<br>}</p>

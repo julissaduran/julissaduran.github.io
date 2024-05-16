@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GAME</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<style>
+ body {background-color: Snow; text-align: center; font-family: 'impact';}
+.navbar-custom {background-color: Lavender}
+.navbar-custom .navbar-nav .nav-link {color:Plum}
+.navbar-custom .navbar-nav .nav-link:hover {color: Thistle}
+
+.dropdown-menu {
+  background-color: Plum;
+  color: RebeccaPurple;
+  text-align: center;}
+
+.dropdown-menu .dropdown-item {
+  color: RebeccaPurple;}
+
+.dropdown-menu a:hover {
+  color: DeepPink;
+  background-color: Plum}
+
+.navbar-nav .dropdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;}
+
+.navbar-nav .dropdown-toggle.caret {
+   @media (min-width: 992px) {
+   margin-left: -16px;}
+   }
+
+  </style>
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+   <div class="container-fluid justify-content-center collapse navbar-collapse">
+    <ul class="navbar-nav" >
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="glitchart.html">Glitch Art</a>
+      </li>
+ <li class="nav-item">
+        <a class="nav-link" href="Minecraft.html">Minecraft Art</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="3D.html">3D</a>
+      <li class="nav-item">
+        <a class="nav-link" href="mememashup.html">Meme Mashup</a>
+      </li>
+ <li class="nav-item">
+        <a class="nav-link" href="portrait.html">Self Portrait</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="askaquestion.html">Ask a question</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="catch.html">Catch a Star</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="insecure.html">Insecure I am</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class= "container-fluid p-5 bg-muted text-center">
+
+<h1 style="color:Plum;">Catch a Star</h1>
+<h2 style="color:thistle;">I took inspiration from xc2028's code on the p5.js web and decided to make it space themed. The objective of the game is to catch as many stars as possible.The game starts slowly and increases in speed over time.</h2>
+<br/>
+<iframe src="catch/index.html" height="400" width="600" title=Catch the stars!></iframe>
+<br/>
+<div class="container p-5 my-5 border">
+  <p>Code: <br> var screen = 0;
+<br>var y= -20;
+<br>var x= 200;
+<br>var speed = 2;
+<br>var score = 0;
+<br>var star;
+<br>var basket;
+<br>var bg;
+
+<br>// score,stars,space.
+<br>function preload() {
+ <br> star = loadImage('stars.png');
+ <br> basket = loadImage('basket.png');
+  <br>bg = loadImage('space.jpg');
+<br>}
+
+<br>// canvas setup
+<br>function setup() {
+ <br> createCanvas (600, 400);
+<br>}
+
+<br>// loading screens
+<br>function draw() {
+  <br>if (screen == 0) {
+   <br> startScreen()
+ <br> } else if (screen == 1) {
+    <br>gameOn()
+  <br>} else if (screen == 2) {
+   <br> endScreen()
+ <br> }
+<br>}
+
+
+<br>// Start Screen
+<br>function startScreen() {
+  <br>background(0);
+  <br>image (bg, 0, 0, 600, 400);
+  <br>fill (255);
+  <br>textAlign(CENTER);
+  <br>textSize (20);
+  <br>textFont ('impact');
+  <br>text( 'Catch the stars!', width/2, height/2);
+  <br>text ('click to start', width /2, height /2
+   <br> + 30);
+  <br>reset();
+<br>}
+
+
+<br>// Starting the game
+<br>function gameOn() {
+  <br>imageMode(CENTER);
+  <br>image (bg, width /2, height /2, 600, 400)
+   <br> textSize(20)
+
+   <br> // score display
+   <br> text("score =" + score, 50, 20)
+
+    <br>// positioning the basket and star
+    <br>rectMode(CENTER)
+    <br>image (basket, mouseX, height - 80, 150, 180)
+    <br>image (star, x, y, 50, 50)
+
+    <br>// star drops
+   <br> y+= speed;
+
+  <br>//player loses when star isn't caught
+  <br>if (y>height) {
+   <br> screen = 2
+ <br> }
+ <br> // speed gets faster once caught
+ <br> if (y>height-50 && x>mouseX-35 && x<mouseX+35) {
+   <br> y = -20
+      <br>speed+= 0.5
+      <br>score+= 1
+<br>  }
+  <br>//random star
+  <br>if (y== -20) {
+   <br> pickRandom();
+ <br> }
+<br>}
+<br>function pickRandom() {
+ <br> x= random(20, width-20)
+<br>}
+
+<br>// end screen
+<br>function endScreen() {
+ <br> background (bg)
+   <br> textAlign(CENTER);
+  <br>textFont('impact');
+  <br>textSize(20);
+  <br>text('GAME OVER', width /2, height /2)
+    <br>text ("SCORE=" + score, width /2, height /2 + 40)
+    <br>text('click to play again', width / 2, height / 2 + 80);
+<br>}
+
+<br>// starting screen when mouse is pressed
+<br>function mousePressed() {
+  <br>if (screen==0) {
+    <br>screen=1
+ <br> }
+
+  <br>// Restart the game
+ <br> else if (screen==2) {
+    <br>screen=0
+  <br>}
+<br>}
+
+
+<br>// Reset values for a new game
+<br>function reset() {
+  <br>score=0;
+  <br>speed=2;
+  <br>y=-20;
+<br>}  </p>
+
+
+</body>
+</html>
